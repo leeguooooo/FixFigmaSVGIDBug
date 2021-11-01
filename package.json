@@ -1,0 +1,60 @@
+{
+  "name": "fixfigmasvgidbug",
+  "displayName": "SVGID转换",
+  "description": "修复SVG",
+  "version": "0.0.2",
+  "publisher": "leeguoo",
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": ["onLanguage:xml"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "fixFigmaSVGIDBug.fix",
+        "title": "替换SVG中的冒号"
+      }
+    ],
+    "menus": {
+      "editor/context": [{
+          "command": "fixFigmaSVGIDBug.fix",
+          "when": "resourceExtname == .svg"
+
+      }]
+
+  },
+  "keybindings": [{
+    "command": "fixFigmaSVGIDBug.fix",
+    "key": "ctrl+f1",
+    "mac": "cmd+f1",
+    "when": "editorTextFocus"
+  }]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.17.27",
+    "@types/vscode": "^1.61.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@vscode/test-electron": "^1.6.2",
+    "eslint": "^8.1.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.3",
+    "typescript": "^4.4.4"
+  },
+  "repository": "https://github.com/leeguooooo/FixFigmaSVGIDBug",
+	"license": "ISC"
+}
