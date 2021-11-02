@@ -5,3 +5,7 @@
 ## 使用方法
 
 在保存的时候自动生效或者在 SVG 菜单中右键选择 `替换SVG中的冒号` 即可。
+
+## vscode 插件地址
+
+https://marketplace.visualstudio.com/items?itemName=leeguoo.fixfigmasvgidbug
