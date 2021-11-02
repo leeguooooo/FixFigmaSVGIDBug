@@ -1,9 +1,4 @@
-# Change Log
-
-All notable changes to the "fixFigmaSVGIDBug" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## 0.0.3 (2021-11-02)
+只修改包含 svg 的内容。
+## 0.02 （2021-11-01）
+第一个版本上线。
