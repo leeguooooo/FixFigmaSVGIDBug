@@ -2,7 +2,7 @@
   "name": "fixfigmasvgidbug",
   "displayName": "SVGID转换",
   "description": "修复SVG",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "leeguoo",
   "engines": {
     "vscode": "^1.61.0"

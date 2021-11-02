@@ -8,19 +8,21 @@ const fixBug = () => {
 	if (editor) {
 		const document = editor.document;
 		let word = document.getText();
-		const ids = idPattern.test(word) ? word.match(idPattern) : [];
-		const urls = urlPattern.test(word) ? word.match(urlPattern) : [];
-		[...ids!, ...urls!].forEach((text:any)=>{
-			word = word.replace(text, text.replace(':', '_'));
-		});
-		const r = new vscode.Range(new vscode.Position(0,0), new vscode.Position(document.lineCount, 1));
+		if(word.includes('<svg')){
+			const ids = idPattern.test(word) ? word.match(idPattern) : [];
+			const urls = urlPattern.test(word) ? word.match(urlPattern) : [];
+			[...ids!, ...urls!].forEach((text:any)=>{
+				word = word.replace(text, text.replace(':', '_'));
+			});
+			const r = new vscode.Range(new vscode.Position(0,0), new vscode.Position(document.lineCount, 1));
 
-		editor.edit(editBuilder => {
-			editBuilder.replace(r, word);
-		});
+			editor.edit(editBuilder => {
+				editBuilder.replace(r, word);
+			});
+			vscode.window.showInformationMessage('SVG ID 中的冒号已成功替换!');
+		}
 	}
-		vscode.window.showInformationMessage('SVG ID 中的冒号已成功替换!');
-}
+};
 
 export function activate(context: vscode.ExtensionContext) {
 
